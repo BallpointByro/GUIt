@@ -10,13 +10,16 @@ touching the command line!
 
 Or if you are lazy, like me, this is a much better way to use git.
 
+TO NOTE:
+    - Because this version (.py extension) is a Proof Of Concept, not all features will be in this version
+        - Watch for the rust version when I finish this POC.
+    - Needs `gh auth` to be set up
+
 """
 
 ##########
 # Modules
 import tkinter as tk
-from PIL import ImageTk as pitk
-from PIL import Image as pii
 import back # Backend (see back.py)
 
 ##################
@@ -35,12 +38,6 @@ repo = ""
 # Starting Screen
 ################
 # In this menu, you can choose a repository (from a file manager), or clone one to a location
-
-# Logo
-logoPath = "assets/logo.svg" # Path
-img = pitk.ImageTk.PhotoImage(pii.Image.open(logoPath)) # FIX HERE (yes, gitblame me!)
-logoLabel = tk.Label(wn, image=img).place(x=400, y=200)
-
 
 # Choose & Clone Repo Label
 chooseRepoLabel = tk.Label(wn, text="Choose a Repository:").place(x=200, y=275)
