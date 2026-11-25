@@ -20,7 +20,7 @@ TO NOTE:
 ##########
 # Modules
 import tkinter as tk
-import back # Backend (see back.py)
+import back as gitbk# Backend (see back.py)
 
 ##################
 # Open the window
@@ -31,8 +31,15 @@ winY = 450 ## Set window Sizes ##
 wn.geometry(f"{winX}x{winY}")
 
 # Repository path
-repo = ""
+repo = "" # See chooseGitDirectory() - gitbk Functions & Subroutines
 
+################################
+# gitbk Functions & Subroutines
+##############################
+# Functions and subroutines that connect to the backend (back.py)
+
+def chooseGitDirectory():
+    repo = tk.filedialog(initialdir="/home/Desktop/", title="Choose your git folder")
 
 ##################
 # Starting Screen
@@ -40,8 +47,11 @@ repo = ""
 # In this menu, you can choose a repository (from a file manager), or clone one to a location
 
 # Choose & Clone Repo Label
-chooseRepoLabel = tk.Label(wn, text="Choose a Repository:").place(x=200, y=275)
+
+chooseGitDirectoryLabel = tk.Label(wn, text="Choose your git repository location:").place(x=200, y=275)
 cloneRepoLabel = tk.Label(wn, text="Clone a Repository:").place(x=200, y=305)
+
+chooseGitDirectoryButton = tk.Button(wn, text="Find Directory", command=chooseFile).place(x=250, y=275)
 
 #######################
 # Keep the window open
