@@ -15,15 +15,21 @@ TO NOTE:
         - Watch for the rust version when I finish this POC.
     - Needs `gh auth` to be set up
 
+##########
+# MAIN.PY
+########
+# Where the user initialises the repository to be passed into front.py
 """
 
 ##########
 # Modules
+########
 import tkinter as tk
 from tkinter import filedialog as fd
 
 # Join Ruff Accordance (tf is that)
 import back as gitbk # Backend (see back.py)
+import front as gitfr # Frontend
 
 ##################
 # Open the window
@@ -36,34 +42,22 @@ wn.geometry(f"{winX}x{winY}")
 # Repository path
 repo = "" # See chooseGitDirectory() - gitbk Functions & Subroutines
 
+#############
+# GUIt Start
+###########
+# Hooks main.py into front.py
+# main.py just acts as a menu screen
+# front.py is the screen that is integrated the most into back.py
+
+def guitStart():
+    print("GUIt -> transfer from main.py into front.py")
+
 ################################
 # gitbk Functions & Subroutines
 ##############################
 # Functions and subroutines that connect to the backend (back.py)
 
-def chooseGitDirectory():
-    """
-    chooseGitDirectory
 
-    Opens the the Directory
-    """
-    global repo
-
-    print("ADD CODE HERE INVOLVING REPO VAR")
-    repo = "I tried"
-
-
-#####################
-# GUIT - Main script
-###################
-# What you all came for.
-# A visual representation of Git for those who have no clue on how to use it.
-class GUIt:
-    def __init__(self, x):
-        self.x = x
-
-def guitStart():
-    pass
 
 ##################
 # Starting Screen
@@ -71,13 +65,14 @@ def guitStart():
 # In this menu, you can choose a repository (from a file manager), or clone one to a location
 
 # Choose & Clone Repo Label
-
 chooseGitDirectoryLabel = tk.Label(wn, text="Choose your git repository location:").place(x=200, y=275)
 cloneRepoLabel = tk.Label(wn, text="Clone a Repository:").place(x=200, y=305)
 
-chooseGitDirectoryButton = tk.Button(wn, text="Find Directory", command=chooseGitDirectory).place(x=450, y=270)
+# Choose & Clone Repo Entry
+# Too tired to figure out how to use filedialog. Entry is better for POC (Written in Python before Rust)
+choosegitDirectory = tk.Entry(wn).place()
 
-continueButton = tk.Button(wn, text="Continue ->", command=guitStart).place()
+continueButton = tk.Button(wn, text="Continue ->", command=guitStart).place(x=690, y=410)
 
 #######################
 # Keep the window open
