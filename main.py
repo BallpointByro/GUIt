@@ -27,7 +27,6 @@ TO NOTE:
 import tkinter as tk
 from tkinter import filedialog as fd
 
-# Join Ruff Accordance (tf is that)
 import back as gitbk # Backend (see back.py)
 import front as gitfr # Frontend
 
@@ -39,8 +38,6 @@ winX = 800 ## Set window Sizes ##
 winY = 450 ## Set window Sizes ##
 wn.geometry(f"{winX}x{winY}")
 
-# Repository path
-repo = "" # See chooseGitDirectory() - gitbk Functions & Subroutines
 
 #############
 # GUIt Start
@@ -49,8 +46,12 @@ repo = "" # See chooseGitDirectory() - gitbk Functions & Subroutines
 # main.py just acts as a menu screen
 # front.py is the screen that is integrated the most into back.py
 
+# FIX THIS
 def guitStart():
+    global choosegitDirectoryEntry
+
     print("GUIt -> transfer from main.py into front.py")
+    gitfr.repo = choosegitDirectoryEntry.get()
 
 ################################
 # gitbk Functions & Subroutines
@@ -70,7 +71,7 @@ cloneRepoLabel = tk.Label(wn, text="Clone a Repository:").place(x=200, y=305)
 
 # Choose & Clone Repo Entry
 # Too tired to figure out how to use filedialog. Entry is better for POC (Written in Python before Rust)
-choosegitDirectory = tk.Entry(wn).place()
+choosegitDirectoryEntry = tk.Entry(wn).place(x=200, y=250)
 
 continueButton = tk.Button(wn, text="Continue ->", command=guitStart).place(x=690, y=410)
 

@@ -33,4 +33,6 @@ wn = tk.Tk()
 repo = ""
 
 if __name__ == "__main__":
-    print("Running from Main")
+    print("Running from terminal (called by author)")
+else:
+    print("Running from MAIN.PY")
