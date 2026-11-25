@@ -20,7 +20,10 @@ TO NOTE:
 ##########
 # Modules
 import tkinter as tk
-import back as gitbk# Backend (see back.py)
+from tkinter import filedialog as fd
+
+# Join Ruff Accordance (tf is that)
+import back as gitbk # Backend (see back.py)
 
 ##################
 # Open the window
@@ -39,7 +42,28 @@ repo = "" # See chooseGitDirectory() - gitbk Functions & Subroutines
 # Functions and subroutines that connect to the backend (back.py)
 
 def chooseGitDirectory():
-    repo = tk.filedialog(initialdir="/home/Desktop/", title="Choose your git folder")
+    """
+    chooseGitDirectory
+
+    Opens the the Directory
+    """
+    global repo
+
+    print("ADD CODE HERE INVOLVING REPO VAR")
+    repo = "I tried"
+
+
+#####################
+# GUIT - Main script
+###################
+# What you all came for.
+# A visual representation of Git for those who have no clue on how to use it.
+class GUIt:
+    def __init__(self, x):
+        self.x = x
+
+def guitStart():
+    pass
 
 ##################
 # Starting Screen
@@ -51,7 +75,9 @@ def chooseGitDirectory():
 chooseGitDirectoryLabel = tk.Label(wn, text="Choose your git repository location:").place(x=200, y=275)
 cloneRepoLabel = tk.Label(wn, text="Clone a Repository:").place(x=200, y=305)
 
-chooseGitDirectoryButton = tk.Button(wn, text="Find Directory", command=chooseFile).place(x=250, y=275)
+chooseGitDirectoryButton = tk.Button(wn, text="Find Directory", command=chooseGitDirectory).place(x=450, y=270)
+
+continueButton = tk.Button(wn, text="Continue ->", command=guitStart).place()
 
 #######################
 # Keep the window open
