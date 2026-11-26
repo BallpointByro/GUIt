@@ -46,12 +46,6 @@ wn.geometry(f"{winX}x{winY}")
 # main.py just acts as a menu screen
 # front.py is the screen that is integrated the most into back.py
 
-# FIX THIS
-def guitStart():
-    global choosegitDirectoryEntry
-
-    print("GUIt -> transfer from main.py into front.py")
-    gitfr.repo = choosegitDirectoryEntry.get()
 
 ################################
 # gitbk Functions & Subroutines
@@ -72,6 +66,11 @@ cloneRepoLabel = tk.Label(wn, text="Clone a Repository:").place(x=200, y=305)
 # Choose & Clone Repo Entry
 # Too tired to figure out how to use filedialog. Entry is better for POC (Written in Python before Rust)
 choosegitDirectoryEntry = tk.Entry(wn).place(x=200, y=250)
+
+# FIX THIS
+def guitStart():
+    print("GUIt -> transfer from main.py into front.py")
+    repo = choosegitDirectoryEntry.get()
 
 continueButton = tk.Button(wn, text="Continue ->", command=guitStart).place(x=690, y=410)
 
