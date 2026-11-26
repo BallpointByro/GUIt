@@ -39,5 +39,9 @@ def pull():
 
 # DEVELOPER: Just so I don't have to type everything out so many times
 if __name__ == "__main__":
-    a = input("Enter your commit message: ")
-    push(a)
+    a = input("Push/Pull > ")
+    if a == "Push":
+        b = input("Enter your commit message: ")
+        push(b)
+    else: # Presumably pull()
+        pull()
