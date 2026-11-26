@@ -25,14 +25,27 @@ TO NOTE:
 ########
 import tkinter as tk
 
-wn = tk.Tk()
 
 #################
 # Repo Directory
 ###############
 repo = ""
 
+#############
+# GUIt Class
+###########
+# Where everything happens
+class guitFront:
+    def __init__(self):
+        # Initialise window
+        self.wn = tk.Tk()
+        self.wn.title("GUIt Frontend")
+        self.wn.geometry("800x450")
+        self.wn.mainloop()
+
+
 if __name__ == "__main__":
     print("Running from terminal (called by author)")
+    guitFront()
 else:
-    print("Running from MAIN.PY")
+    print(f"Running from {__name__}")
